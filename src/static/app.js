@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const spotsLeft = details.max_participants - details.participants.length;
 
         const participantsList = details.participants.length > 0 
-          ? `<div style="margin-top: 10px;">${details.participants.map(email => `<div style="display: flex; justify-content: space-between; align-items: center; padding: 5px; margin: 3px 0; background-color: #f0f0f0; border-radius: 3px;"><span>${email}</span><button class="delete-participant" data-activity="${name}" data-email="${email}" style="background-color: #d32f2f; padding: 2px 8px; font-size: 14px; min-width: auto;">×</button></div>`).join('')}</div>`
-          : '<p style="margin-top: 10px; font-style: italic; color: #666;">No participants yet.</p>';
+          ? `<div class="participants-list">${details.participants.map(email => `<div class="participant-item"><span>${email}</span><button class="delete-participant" data-activity="${name}" data-email="${email}">×</button></div>`).join('')}</div>`
+          : '<p class="no-participants">No participants yet.</p>';
 
         activityCard.innerHTML = `
           <h4>${name}</h4>
